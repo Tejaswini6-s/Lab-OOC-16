@@ -1,0 +1,39 @@
+#include <iostream> 
+using namespace std;
+
+class Complex {
+
+private:
+
+    int real, imag;
+
+public:
+
+    Complex(int r=0,int i=0):real(r), imag(i){}
+
+    Complex add(const Complex &c) { return Complex(real+c.real, imag+c.imag);}
+
+    Complex subtract(const Complex &c) 
+    { Complex T3;
+      T3.real = real+c.real;
+      T3.imag = real+c.imag;
+         real = T3.real;
+         imag=T3.imag;
+      return T3; 
+    }
+
+void display() const { cout<<real<<" + i"<<imag<<endl; } };
+
+int main(){
+
+Complex c1(4,5), c2(8.9);
+Complex sum=c1.add(c1);
+Complex diff=c1.subtract(c2);
+
+cout<<"First Complex Number: "; c1.display();
+cout<<"Second Complex Number: "; c2.display(); 
+cout<<"Addition: "; sum.display(); 
+cout<<"Substraction: "; diff.display(); 
+return 0;
+
+}
